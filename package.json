@@ -9,7 +9,7 @@
     "genJSON": "node ./dist/generators/xml2jsonFile.js",
     "test": "node ./dist/src/test.js",
     "postinstall": "npm run genJSON",
-    "preinstall": "cat package.json"
+    "preinstall": "cat ../package.json"
   },
   "keywords": [
     "icd",
