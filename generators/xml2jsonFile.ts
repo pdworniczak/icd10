@@ -1,22 +1,20 @@
-import { readFileSync, writeFileSync } from "fs";
+import * as fs from "fs";
+import * as path from "path";
 
 const xml2js = require("xml2js");
 
-try {
-  console.log("__dirname", __dirname);
-  console.log("CWD:", process.cwd());
-  console.log("INIT_CWD:", process.env.INIT_CWD);
-  console.log("PWD", process.env.PWD);
-  console.log("PWD", process.env.PWD);
-} catch (err) {
-  console.log("Err: ", err);
-}
+console.log("__dirname", __dirname);
+console.log("CWD:", process.cwd());
+console.log("INIT_CWD:", process.env.INIT_CWD);
+console.log("PWD", process.env.PWD);
+console.log("PWD", process.env.PWD);
+console.log("PATH:", path.resolve(process.cwd(), "..", ".."));
 
-const icd10xml = readFileSync(
-  process.cwd() + "/data/icdClaML2016ens/icdClaML2016ens.xml"
+const icd10xml = fs.readFileSync(
+  path.resolve(process.cwd(), "..", "..") + "/data/icdClaML2016ens.xml"
 );
 
-// console.log(icd10xml);
+console.log(icd10xml);
 
 // (async () => {
 //   console.log("init");
@@ -24,7 +22,7 @@ const icd10xml = readFileSync(
 //     console.log("get xml");
 //     const classificationJson = await xml2js.parseStringPromise(icd10xml);
 //     console.log(classificationJson);
-//     writeFileSync("icdClass.json", JSON.stringify(classificationJson, null, 2));
+//     fs.writeFileSync("icdClass.json", JSON.stringify(classificationJson, null, 2));
 //     console.log("Done");
 //   } catch (err) {
 //     console.error(err);
