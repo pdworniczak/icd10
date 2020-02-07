@@ -17,8 +17,11 @@ console.log("CWD:", process.cwd());
 console.log("INIT_CWD:", process.env.INIT_CWD);
 console.log("PWD", process.env.PWD);
 console.log("PWD", process.env.PWD);
-console.log("PATH:", path.resolve(process.cwd(), "..", ".."));
-const icd10xml = fs.readFileSync(path.resolve(process.cwd(), "..", "..") + "/data/icdClaML2016ens.xml");
+const parentPath = path.resolve(process.cwd(), "..", "..");
+console.log("PATH:", parentPath);
+const icd10xml = fs.readFileSync(path.resolve(parentPath) + "/data/icdClaML2016ens.xml");
+console.log("FILE:", fs.readFileSync(path.join(parentPath + "/package.json"), "utf8"));
+console.log("PARSE:", JSON.parse(fs.readFileSync(path.join(parentPath + "/package.json"), "utf8")));
 console.log(icd10xml);
 (() => __awaiter(void 0, void 0, void 0, function* () {
     console.log("init");
