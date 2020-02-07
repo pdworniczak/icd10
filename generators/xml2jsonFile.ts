@@ -16,17 +16,15 @@ const icd10xml = fs.readFileSync(
 
 console.log(icd10xml);
 
-// (async () => {
-//   console.log("init");
-//   try {
-//     console.log("get xml");
-//     const classificationJson = await xml2js.parseStringPromise(icd10xml);
-//     console.log(classificationJson);
-//     fs.writeFileSync("icdClass.json", JSON.stringify(classificationJson, null, 2));
-//     console.log("Done");
-//   } catch (err) {
-//     console.error(err);
-//   }
-// })();
-
-throw Error("post fail");
+(async () => {
+  console.log("init");
+  try {
+    console.log("get xml");
+    const classificationJson = await xml2js.parseStringPromise(icd10xml);
+    console.log(classificationJson);
+    fs.writeFileSync("icdClass.json", JSON.stringify(classificationJson, null, 2));
+    console.log("Done");
+  } catch (err) {
+    console.error(err);
+  }
+})();
